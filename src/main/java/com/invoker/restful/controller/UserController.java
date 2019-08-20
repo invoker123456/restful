@@ -1,7 +1,7 @@
 package com.invoker.restful.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.invoker.restful.bean.User;
+import com.invoker.restful.entity.User;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.invoker.restful.bean;
+package com.invoker.restful.entity;
 
 import lombok.Data;
 
