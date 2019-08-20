@@ -1,6 +1,6 @@
 package com.invoker.restful.controller;
 
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.invoker.restful.entity.User;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +30,8 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value = "/users")
 public class UserController {
 
+    Gson gson = new Gson();
+
     @ApiOperation(value = "查询单个用户", notes = "根据id查询单个用户")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiImplicitParam(name = "id", value = "用户id", required = true)
@@ -46,7 +48,7 @@ public class UserController {
     @ApiOperation(value = "新增用户", notes = "新增用户")
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String addUser(@RequestBody User user) {
-        return "add user:" + JSONObject.toJSONString(user);
+        return "add user:" + gson.toJson(user);
     }
 
     @ApiOperation(value = "修改用户", notes = "修改用户")
@@ -56,7 +58,7 @@ public class UserController {
             @ApiImplicitParam(name = "user", value = "用户信息json", required = true)
     })
     public String updateUser(@PathVariable Long id, @RequestBody User user) {
-        return "update user,id:" + id + ",user:" + JSONObject.toJSONString(user);
+        return "update user,id:" + id + ",user:" + gson.toJson(user);
     }
 
     @ApiOperation(value = "删除用户", notes = "根据id删除用户")
